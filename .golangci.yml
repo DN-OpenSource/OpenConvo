@@ -31,6 +31,12 @@ linters:
           - noctx
           - bodyclose
           - unparam
+      # The default Postgres DSN carries the well-known local dev
+      # credentials from docker-compose.dev.yml; it is not a real secret.
+      - path: internal/config/config\.go
+        text: "Password in URL"
+        linters:
+          - gosec
 
 formatters:
   enable:
