@@ -1,0 +1,37 @@
+version: "2"
+
+run:
+  timeout: 5m
+
+linters:
+  default: standard
+  enable:
+    - errcheck
+    - govet
+    - ineffassign
+    - staticcheck
+    - unused
+    - misspell
+    - unconvert
+    - unparam
+    - gosec
+    - nilerr
+    - errorlint
+    - bodyclose
+    - noctx
+  settings:
+    gosec:
+      excludes:
+        - G404 # math/rand acceptable for jitter/backoff
+  exclusions:
+    rules:
+      - path: _test\.go
+        linters:
+          - gosec
+          - noctx
+          - bodyclose
+          - unparam
+
+formatters:
+  enable:
+    - gofmt
