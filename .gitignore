@@ -1,0 +1,9 @@
+/bin/
+/data/
+/dist/
+*.test
+*.out
+coverage.txt
+openstream.yaml
+.env
+node_modules/
